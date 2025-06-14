@@ -1,0 +1,35 @@
+---
+const { rotation, orbitDuration } = Astro.props;
+let size = Astro.props.size;
+
+// Reduz o tamanho se for mobile
+if (typeof window !== "undefined" && window.matchMedia("(max-width: 768px)").matches) {
+  size = size * 0.5;
+}
+---
+
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+  <div 
+    class="animate-spin"
+    style={{
+      animationDuration: orbitDuration,
+    }}
+  >
+    <div 
+      style={{
+        transform: `rotate(${rotation}deg)`,
+        width: `${size}px`,
+        height: `${size}px`,
+      }}
+    >
+      <div 
+        class="inline-flex" 
+        style={{
+          transform: `rotate(${-rotation}deg)`,
+        }}
+      >
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>
