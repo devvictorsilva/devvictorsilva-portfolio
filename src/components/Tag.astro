@@ -1,0 +1,8 @@
+---
+const { title, iconName, textStyle = "" } = Astro.props;
+---
+
+<div data-aos="fade-up" data-aos-duration="1200" class="card w-[200px] h-full bg-gray-800 hover:bg-gray-700 text-white flex items-center rounded-lg px-4 py-2">
+  <img src={`icon/${iconName}`} alt={`ícone de ${title}`} class="w-[48px] h-[48px] mr-4" loading="lazy" />
+  <span class={`${textStyle}`}>{title}</span>
+</div>
