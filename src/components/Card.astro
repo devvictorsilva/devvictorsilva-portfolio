@@ -1,0 +1,15 @@
+---
+import { Image } from "astro:assets";
+const { banner, title, textStyle = "", text } = Astro.props;
+---
+
+<div>
+  <div data-aos="flip-left" data-aos-duration="1000" class="reveal card w-[380px] h-full bg-gray-800 hover:bg-gray-700 text-white flex flex-col rounded-lg cursor-default">
+    <Image width={100} height={100} src={banner} alt={`banner de ${title}`} class="w-fit h-fit" loading="lazy" />
+    <div class="px-4 pb-2">
+      <h1 class="text-white text-lg font-medium my-2">{title}</h1>
+      <span class={`${textStyle}`}>{text}</span>
+      <slot />
+    </div>
+  </div>
+</div>
