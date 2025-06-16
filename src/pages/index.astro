@@ -13,6 +13,7 @@ import TsIcon from "../assets/TsIcon.svg";
 import Card from "../components/Card.astro";
 import Header from "../components/Header.astro";
 import Orbit from "../components/Orbit.astro";
+import Section from "../components/Section.astro";
 import Tag from "../components/Tag.astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
@@ -134,32 +135,24 @@ const options = {
   </div>
 
   <!-- Skills -->
-  <div
-    class="w-full min-h-[70vh] bg-gray-900 flex flex-col items-center gap-8 py-4 relative z-2"
-  >
-    <h1 id="skills"><span class="text-blue-900 bold">My Skills</span></h1>
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-4xl"
-    >
-      <Tag iconName="js.png" title="JavaScript" />
-      <Tag iconName="ts.png" title="Typescript" />
-      <Tag iconName="angular.png" title="Angular" />
-      <Tag iconName="react.png" title="React" />
-      <Tag iconName="node.png" title="Node" />
-      <Tag iconName="nestjs.png" title="NestJs" />
-      <Tag iconName="python.png" title="Python" />
-      <Tag iconName="kotlin.png" title="Kotlin" />
-      <Tag iconName="java.png" title="java" />
-      <Tag iconName="docker.png" title="Docker" />
-      <Tag iconName="postgres.png" title="PostgreSQL" />
-      <Tag iconName="git.png" title="Git" />
-      <Tag iconName="github.png" title="Github" />
-    </div>
-  </div>
+  <Section title="Habilidades" id="skills">
+    <Tag iconName="js.png" title="JavaScript" />
+    <Tag iconName="ts.png" title="Typescript" />
+    <Tag iconName="angular.png" title="Angular" />
+    <Tag iconName="react.png" title="React" />
+    <Tag iconName="node.png" title="Node" />
+    <Tag iconName="nestjs.png" title="NestJs" />
+    <Tag iconName="python.png" title="Python" />
+    <Tag iconName="kotlin.png" title="Kotlin" />
+    <Tag iconName="java.png" title="java" />
+    <Tag iconName="docker.png" title="Docker" />
+    <Tag iconName="postgres.png" title="PostgreSQL" />
+    <Tag iconName="git.png" title="Git" />
+    <Tag iconName="github.png" title="Github" />
+  </Section>
 
   <!-- Projetos -->
-  <div class="w-full h-[70vh] bg-gray-900 flex flex-col gap-8">
-    <h1 id="projetos" class="text-white text-center text-lg">Projects</h1>
+  <Section title="Projetos" isSecondary={true} id="projects">
     <div class="flex flex-wrap gap-8 px-4">
       <Card
         banner="/src/assets/lovira.png"
@@ -177,5 +170,5 @@ const options = {
         text="Loriva is the best"
       />
     </div>
-  </div>
+  </Section>
 </Layout>
