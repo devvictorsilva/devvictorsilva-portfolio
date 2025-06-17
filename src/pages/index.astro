@@ -1,5 +1,4 @@
 ---
-import type { Container, Engine } from "@tsparticles/engine";
 import BooksIcon from "../assets/BooksIcon.svg";
 import CatIcon from "../assets/CatIcon.svg";
 import CoffeeIcon from "../assets/CoffeeIcon.svg";
@@ -14,49 +13,9 @@ import Card from "../components/Card.astro";
 import Header from "../components/Header.astro";
 import Orbit from "../components/Orbit.astro";
 import Section from "../components/Section.astro";
-import Tag from "../components/Tag.astro";
+import { projects } from "../data/projects.ts";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
-declare global {
-  interface Window {
-    particlesInit: (engine: Engine) => Promise<void>;
-
-    particlesLoaded: (container: Container) => void;
-  }
-}
-
-const options = {
-  fullScreen: {
-    enable: true,
-    zIndex: -1,
-  },
-  particles: {
-    number: {
-      value: 80,
-    },
-    color: {
-      value: "#ffffff",
-    },
-    shape: {
-      type: "circle",
-    },
-    opacity: {
-      value: 0.5,
-    },
-    size: {
-      value: 3,
-    },
-    move: {
-      enable: true,
-      speed: 1,
-      direction: "none",
-      outMode: "bounce",
-    },
-  },
-  background: {
-    color: "#0d0d0d",
-  },
-};
 ---
 
 <Layout>
@@ -135,40 +94,26 @@ const options = {
   </div>
 
   <!-- Skills -->
-  <Section title="Habilidades" id="skills">
-    <Tag iconName="js.png" title="JavaScript" />
-    <Tag iconName="ts.png" title="Typescript" />
-    <Tag iconName="angular.png" title="Angular" />
-    <Tag iconName="react.png" title="React" />
-    <Tag iconName="node.png" title="Node" />
-    <Tag iconName="nestjs.png" title="NestJs" />
-    <Tag iconName="python.png" title="Python" />
-    <Tag iconName="kotlin.png" title="Kotlin" />
-    <Tag iconName="java.png" title="java" />
-    <Tag iconName="docker.png" title="Docker" />
-    <Tag iconName="postgres.png" title="PostgreSQL" />
-    <Tag iconName="git.png" title="Git" />
-    <Tag iconName="github.png" title="Github" />
+  <Section title="Serviços" isSecondary={true} id="services">
+    
   </Section>
 
   <!-- Projetos -->
-  <Section title="Projetos" isSecondary={true} id="projects">
-    <div class="flex flex-wrap gap-8 px-4">
-      <Card
-        banner="/src/assets/lovira.png"
-        title="Lovira"
-        text="Loriva is the best"
-      />
-      <Card
-        banner="/src/assets/lovira.png"
-        title="Lovira"
-        text="Loriva is the best"
-      />
-      <Card
-        banner="/src/assets/lovira.png"
-        title="Lovira"
-        text="Loriva is the best"
-      />
+  <Section title="Trabalhos" id="projects">
+    <div 
+      data-aos="fade-ease" 
+      data-aos-duration="1000"
+      class="grid grid-cols-3 gap-12 px-48 py-8"
+    >
+      {projects.map((projet) => {
+        return (
+          <Card
+            banner={projet.image}
+            title={projet.name}
+            text={projet.description}
+          />
+        );
+      })}
     </div>
   </Section>
 </Layout>
