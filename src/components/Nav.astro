@@ -1,0 +1,123 @@
+---
+const sections = [
+  { id: "contact", label: "Contato" },
+  { id: "servicos", label: "Serviços" },
+  { id: "trabalhos", label: "Trabalhos" },
+];
+---
+
+<aside
+  id="sideNav"
+  class="fixed top-1/2 right-6 -translate-y-1/2 flex flex-col items-center gap-4
+         bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 shadow-lg z-59
+         transition-opacity duration-300 opacity-100"
+>
+  {sections.map(({ id, label }) => (
+    <a
+      href={`#${id}`}
+      class="relative flex items-center justify-center group"
+      id={`link-${id}`} 
+      aria-current="false"
+    >
+      <span
+        class="w-3 h-3 rounded-full 
+          bg-gray-500 transition-all duration-300
+          group-hover:bg-[#2F81F7]
+        "
+      />
+      <span
+        class="absolute right-full mr-3 px-2 py-1 bg-[#0D1117] text-white text-sm rounded opacity-0
+               group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap"
+      >
+        {label}
+      </span>
+    </a>
+  ))}
+</aside>
+
+<script>
+  const sections = [{ id: "contact" }, { id: "servicos" }, { id: "trabalhos" }];
+  const sideNav = document.getElementById("sideNav");
+
+  let scrollTimeout: ReturnType<typeof setTimeout> | undefined;
+  let isHovering = false;
+
+  function showNav() {
+    if (!sideNav) return;
+    sideNav.style.opacity = "1";
+    sideNav.classList.remove("invisible");
+  }
+
+  function hideNav() {
+    if (isHovering) return;
+    if (!sideNav) return;
+    sideNav.style.opacity = "0";
+    sideNav.classList.add("invisible");
+  }
+
+  window.addEventListener("scroll", () => {
+    showNav();
+
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      hideNav();
+    }, 500);
+  });
+
+  if (sideNav) {
+    sideNav.addEventListener("mouseenter", () => {
+      isHovering = true;
+      showNav(); // Ativa ao passar o mouse mesmo se estiver oculto
+    });
+
+    sideNav.addEventListener("mouseleave", () => {
+      isHovering = false;
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        hideNav();
+      }, 1000);
+    });
+  }
+
+  // Lógica do scroll spy (sem mudanças)
+  function setActiveLink(activeId: string) {
+    sections.forEach(({ id }) => {
+      const link = document.getElementById(`link-${id}`);
+      if (!link) return;
+      const span = link.querySelector("span");
+      if (!span) return;
+
+      if (id === activeId) {
+        link.setAttribute("aria-current", "page");
+        span.classList.remove("w-3", "h-3", "bg-gray-500");
+        span.classList.add("w-5", "h-5", "bg-[#2F81F7]");
+      } else {
+        link.removeAttribute("aria-current");
+        span.classList.remove("w-5", "h-5", "bg-[#2F81F7]");
+        span.classList.add("w-3", "h-3", "bg-gray-500");
+      }
+    });
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visibleSections = entries.filter(entry => entry.isIntersecting);
+      if (visibleSections.length === 0) return;
+
+      visibleSections.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      const topSection = visibleSections[0];
+      setActiveLink(topSection.target.id);
+    },
+    {
+      rootMargin: "0px 0px -70% 0px",
+      threshold: [0, 0.5, 1],
+    }
+  );
+
+  sections.forEach(({ id }) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  showNav();
+</script>
