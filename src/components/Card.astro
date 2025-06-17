@@ -15,25 +15,26 @@ const { banner, title, text } = Astro.props;
   <div class="flex h-37.5 justify-center items-center select-none">
     {typeof banner === "string" ? (
       <img
-        src={banner}
-        alt={`Logo do projeto ${title}`}
-        width={150}
-        height={150}
-        class="select-none"
-        draggable="false"
-        loading="lazy"
+      src={banner}
+      alt={`Logo do projeto ${title}`}
+      width={150}
+      height={150}
+      class="select-none"
+      draggable="false"
+      loading="lazy"
       />
     ) : (
       <Image
-        src={banner}
-        alt={`Logo do projeto ${title}`}
-        width={150}
-        height={150}
-        class="select-none"
-        draggable="false"
-        loading="lazy"
-      />
+      src={banner}
+      alt={`Logo do projeto ${title}`}
+      width={150}
+      height={150}
+      class="select-none"
+      draggable="false"
+      loading="lazy"
+        />
     )}
   </div>
+  <h2 class="text-primary-text text-2xl text-center">{title}</h2>
   <p class="text-secondary-text text-sm indent-8 text-justify px-4">{text}</p>
 </div>
