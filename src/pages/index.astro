@@ -1,6 +1,17 @@
 ---
+import BooksIcon from '../assets/BooksIcon.svg';
+import CatIcon from '../assets/CatIcon.svg';
+import CoffeeIcon from '../assets/CoffeeIcon.svg';
+import ComputerIcon from '../assets/ComputerIcon.svg';
+import DockerIcon from '../assets/DockerIcon.svg';
+import LinuxIcon from '../assets/LinuxIcon.svg';
+import PostgresIcon from '../assets/PostgresIcon.svg';
+import ServerIcon from '../assets/ServerIcon.svg';
+import SongIcon from '../assets/SongIcon.svg';
+import TsIcon from '../assets/TsIcon.svg';
 import Card from "../components/Card.astro";
-import Header from "../components/Header.astro";
+import Nav from "../components/Nav.astro";
+import Orbit from "../components/Orbit.astro";
 import Section from "../components/Section.astro";
 import { projects } from "../data/projects.ts";
 import Layout from "../layouts/Layout.astro";
@@ -8,8 +19,6 @@ import "../styles/global.css";
 ---
 
 <Layout>
-  <script type="module" is:inline src="/src/scripts/particles-init.ts"></script>
-  <Header />
   <!-- Profile -->
   <style>
     .apresentation {
@@ -29,8 +38,10 @@ import "../styles/global.css";
       font-weight: 500;
     }
   </style>
-<!-- 
-  <div class="bg-gray-900 h-[100vh] overflow-hidden" id="particles-js">
+
+  <Nav/>
+
+  <div class="bg-gray-900 h-[100vh] overflow-hidden">
     <Orbit rotation="320" orbitDuration="100s" size="940">
       <img src="/src/assets/code.png" alt="CodeIcon" />
     </Orbit>
@@ -70,7 +81,7 @@ import "../styles/global.css";
         data-aos="fade-in"
         data-aos-duration="3000"
       >
-        <p>Hi, my name is <span class="text-blue-700">Victor Silva</span></p>
+        <p id="contact">Hi, my name is <span class="text-blue-700">Victor Silva</span></p>
         <p>I'm Full-Stack Developer</p>
         <p class="text-justify text-sm">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta natus
@@ -80,15 +91,19 @@ import "../styles/global.css";
         </p>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <!-- Skills -->
-  <Section title="Serviços" isSecondary={true} id="services">
+  <Section 
+    title="Serviços" 
+    isSecondary={true} 
+    sectionId="servicos"
+  >
     
   </Section>
 
   <!-- Projetos -->
-  <Section title="Trabalhos" id="projects">
+  <Section title="Trabalhos" sectionId="trabalhos">
     <div 
       data-aos="fade-ease" 
       data-aos-duration="1000"
