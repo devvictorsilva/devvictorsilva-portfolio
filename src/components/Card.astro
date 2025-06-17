@@ -5,7 +5,7 @@ const { banner, title, text } = Astro.props;
 
 <div 
   class="reveal w-full h-full bg-secondary 
-    text-white flex flex-col gap-8
+    text-white flex flex-col gap-4
     pt-6 pb-10 px-4 rounded-lg cursor-default 
     border-1 border-border transition-all duration-600 ease-in-out
     hover:shadow-lg hover:shadow-primary-accent/40 hover:-translate-y-4 hover:scale-[1.04] 
@@ -35,6 +35,6 @@ const { banner, title, text } = Astro.props;
         />
     )}
   </div>
-  <h2 class="text-primary-text text-2xl text-center">{title}</h2>
+  <h2 class="text-primary-text text-2xl leading-relaxed text-center">{title}</h2>
   <p class="text-secondary-text text-sm indent-8 text-justify px-4">{text}</p>
 </div>
