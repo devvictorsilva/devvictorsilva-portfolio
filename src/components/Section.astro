@@ -1,9 +1,9 @@
 ---
-const { title, isSecondary } = Astro.props;
+const { title, isSecondary, sectionId } = Astro.props;
 
 ---
 
 <div class=`min-h-[70vh] h-fit w-full ${isSecondary ? 'bg-secondary' : 'bg-primary'}  py-8 relative z-2`>
-  <h2 class="text-primary-text text-center text-5xl font-bold mb-18">{title}</h2>
+  <h2 class="text-primary-text text-center text-5xl font-bold mb-18" id={sectionId} >{title}</h2>
   <slot />
 </div>
