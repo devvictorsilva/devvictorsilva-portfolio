@@ -1,28 +1,13 @@
 ---
 
 import Card from "../components/Card.tsx";
-import Carousel from '../components/Carousel';
+import CarouselServices from "../components/CarouselServices.tsx";
 import Nav from "../components/Nav.tsx";
 import Presentation from "../components/Presentation.astro";
 import Section from "../components/Section.astro";
 import { projects } from "../data/projects.ts";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
-
-const services = [
-  {
-    title: "Web Development",
-    description: "Building responsive and modern web applications.",
-  },
-  {
-    title: "Mobile Development",
-    description: "Creating user-friendly mobile applications.",
-  },
-  {
-    title: "UI/UX Design",
-    description: "Designing intuitive user interfaces and experiences.",
-  },
-]
 ---
 
 <Layout>
@@ -37,14 +22,12 @@ const services = [
     isSecondary={true} 
     sectionId="servicos"
   >
-    <div class="flex justify-center items-center h-full">
-      <Carousel
-        client:only="react"
-        items={services.map((service) => ({
-          title: service.title,
-          text: service.description,
-        }))}
-      />
+    <div 
+      data-aos="fade-ease" 
+      data-aos-duration="1000"
+      class="flex justify-center items-center h-full"
+    >
+      <CarouselServices client:only="react"/>
     </div>
   </Section>
 
