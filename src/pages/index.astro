@@ -9,13 +9,29 @@ import PostgresIcon from '../assets/PostgresIcon.svg';
 import ServerIcon from '../assets/ServerIcon.svg';
 import SongIcon from '../assets/SongIcon.svg';
 import TsIcon from '../assets/TsIcon.svg';
-import Card from "../components/Card.astro";
-import Nav from "../components/Nav.astro";
+import Card from "../components/Card.tsx";
+import Carousel from '../components/Carousel';
+import Nav from "../components/Nav.tsx";
 import Orbit from "../components/Orbit.astro";
 import Section from "../components/Section.astro";
 import { projects } from "../data/projects.ts";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+
+const services = [
+  {
+    title: "Web Development",
+    description: "Building responsive and modern web applications.",
+  },
+  {
+    title: "Mobile Development",
+    description: "Creating user-friendly mobile applications.",
+  },
+  {
+    title: "UI/UX Design",
+    description: "Designing intuitive user interfaces and experiences.",
+  },
+]
 ---
 
 <Layout>
@@ -39,7 +55,7 @@ import "../styles/global.css";
     }
   </style>
 
-  <Nav/>
+  <Nav client:load/>
 
   <div class="bg-gray-900 h-[100vh] overflow-hidden">
     <Orbit rotation="320" orbitDuration="100s" size="940">
@@ -93,13 +109,20 @@ import "../styles/global.css";
     </div>
   </div>
 
-  <!-- Skills -->
+  <!-- Serviços -->
   <Section 
     title="Serviços" 
     isSecondary={true} 
     sectionId="servicos"
   >
-    
+    <div class="flex justify-center items-center h-full">
+      <Carousel
+        items={services.map((service) => ({
+          title: service.title,
+          text: service.description,
+        }))}
+      />
+    </div>
   </Section>
 
   <!-- Projetos -->
@@ -112,7 +135,7 @@ import "../styles/global.css";
       {projects.map((projet) => {
         return (
           <Card
-            banner={projet.image}
+            banner={typeof projet.image === "string" ? projet.image : projet.image.src}
             title={projet.name}
             text={projet.description}
           />
