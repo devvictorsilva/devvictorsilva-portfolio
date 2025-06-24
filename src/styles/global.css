@@ -14,6 +14,9 @@
   --color-border: #1E293B;
 
   --animate-wiggle: wiggle 1s ease-in-out infinite;
+
+  --breakpoint-desktop: 800px;
+
   @keyframes wiggle {
     0%,
     100% {
