@@ -1,18 +1,9 @@
 ---
-import BooksIcon from '../assets/BooksIcon.svg';
-import CatIcon from '../assets/CatIcon.svg';
-import CoffeeIcon from '../assets/CoffeeIcon.svg';
-import ComputerIcon from '../assets/ComputerIcon.svg';
-import DockerIcon from '../assets/DockerIcon.svg';
-import LinuxIcon from '../assets/LinuxIcon.svg';
-import PostgresIcon from '../assets/PostgresIcon.svg';
-import ServerIcon from '../assets/ServerIcon.svg';
-import SongIcon from '../assets/SongIcon.svg';
-import TsIcon from '../assets/TsIcon.svg';
+
 import Card from "../components/Card.tsx";
 import Carousel from '../components/Carousel';
 import Nav from "../components/Nav.tsx";
-import Orbit from "../components/Orbit.astro";
+import Presentation from "../components/Presentation.astro";
 import Section from "../components/Section.astro";
 import { projects } from "../data/projects.ts";
 import Layout from "../layouts/Layout.astro";
@@ -35,79 +26,10 @@ const services = [
 ---
 
 <Layout>
-  <!-- Profile -->
-  <style>
-    .apresentation {
-      color: white;
-      font-size: 2rem;
-      text-align: center;
-      font-family: "Poppins", sans-serif;
-      font-weight: 500;
-      line-height: 1.5;
-    }
-
-    h1 {
-      color: white;
-      font-size: 2rem;
-      text-align: center;
-      font-family: "Poppins", sans-serif;
-      font-weight: 500;
-    }
-  </style>
-
   <Nav client:load/>
 
-  <div class="bg-gray-900 h-[100vh] overflow-hidden">
-    <Orbit rotation="320" orbitDuration="100s" size="940">
-      <img src="/src/assets/code.png" alt="CodeIcon" />
-    </Orbit>
-    <Orbit rotation="100" orbitDuration="48s" size="400">
-      <CatIcon class="size-18 text-[#11276e] opacity-40"/>
-    </Orbit>
-    <Orbit rotation="90" orbitDuration="180s" size="1180">
-      <TsIcon class="size-15 text-[#11276e]"/>
-    </Orbit>
-    <Orbit rotation="0" orbitDuration="26s" size="580">
-      <DockerIcon class="size-12"/>
-    </Orbit>
-    <Orbit rotation="150" orbitDuration="30s" size="480">
-      <BooksIcon class="size-12 text-[#11276e]"/>
-    </Orbit>
-    <Orbit rotation="600" orbitDuration="55s" size="680">
-      <PostgresIcon class="size-8 text-[#11276e]"/>
-    </Orbit>
-    <Orbit rotation="-80" orbitDuration="28s" size="680">
-      <LinuxIcon class="size-20 text-[#11276e]"/>
-    </Orbit>
-    <Orbit rotation="110" orbitDuration="40s" size="780">
-      <ServerIcon class="size-16 text-[#11276e]"/>
-    </Orbit>
-    <Orbit rotation="300" orbitDuration="50s" size="430">
-      <ComputerIcon class="size-8 text-[#11276e] opacity-40"/>
-    </Orbit>
-    <Orbit rotation="-80" orbitDuration="48s" size="980">
-      <CoffeeIcon class="size-14 text-[#11276e]"/>
-    </Orbit>
-    <Orbit rotation="94" orbitDuration="140s" size="980">
-      <SongIcon class="size-16 text-[#11276e]"/>
-    </Orbit>
-    <div class="flex justify-around items-center h-full relative z-2">
-      <div
-        class="apresentation flex flex-col w-126"
-        data-aos="fade-in"
-        data-aos-duration="3000"
-      >
-        <p id="contact">Hi, my name is <span class="text-blue-700">Victor Silva</span></p>
-        <p>I'm Full-Stack Developer</p>
-        <p class="text-justify text-sm">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta natus
-          cupiditate praesentium fugit sequi dignissimos, expedita a vero ipsa
-          vitae voluptatum voluptate illum illo sit iste porro nihil
-          necessitatibus. A?
-        </p>
-      </div>
-    </div>
-  </div>
+  <!-- Profile -->
+  <Presentation />
 
   <!-- Serviços -->
   <Section 
