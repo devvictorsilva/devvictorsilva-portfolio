@@ -34,3 +34,53 @@ html, body {
 
   overflow-x: hidden;
 }
+
+.shadow-glow {
+  box-shadow: 0 0 10px 2px rgba(106, 17, 203, 0.5), 0 0 15px 4px rgba(37, 117, 252, 0.4);
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px 2px rgba(106, 17, 203, 0.5), 0 0 15px 4px rgba(37, 117, 252, 0.4);
+  }
+  to {
+    box-shadow: 0 0 12px 3px rgba(106, 17, 203, 0.6), 0 0 18px 5px rgba(37, 117, 252, 0.5);
+  }
+}
+
+.radiant {
+  position: relative;
+  border: 6px solid transparent;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  background-clip: padding-box;
+}
+
+.radiant::after {
+  position: absolute;
+  top: -6px; bottom: -6px;
+  left: -6px; right: -6px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  content: '';
+  z-index: -1;
+  border-radius: 16px;
+}
+
+.grounded-radiants {
+  position: relative;
+  border: 6px solid transparent;
+  border-radius: 16px;
+  background: var(--color-secondary);
+  background-clip: padding-box;
+}
+
+.grounded-radiants::after {
+  position: absolute;
+  top: -6px; bottom: -6px;
+  left: -6px; right: -6px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  content: '';
+  z-index: -1;
+  border-radius: 16px;
+}
