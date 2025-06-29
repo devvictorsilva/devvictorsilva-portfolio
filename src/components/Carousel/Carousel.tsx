@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react";
 import { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
@@ -25,6 +26,7 @@ export default function Carousel({ items }: CarouselProps) {
     slidesToShow: 3,
     slidesToScroll: 1,
     focusOnSelect: true,
+    prevArrow: <Icon icon="material-symbols:keyboard-arrow-left" width="96" height="96"  color="#3B82F6" />,
     afterChange: (index: number) => {
       const centerIndex = Math.floor(index + settings.slidesToShow / 4) % items.length;
       setCurrentIndex(centerIndex);
