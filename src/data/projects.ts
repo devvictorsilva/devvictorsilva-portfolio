@@ -23,7 +23,7 @@ export const projects: Project[] = [
   },
   {
     name: "Lameff",
-    description: "É um sistema de gerenciamento de materiais (com categorias e unidades de medidas diferentes) para monitoramento de eletrolisadores com controle variáveis como produção e consumo de energia, dados ambientais e eficiência operacional, visando aumentar a qualidade e reduzir os custos da produção de H2V. Foi desenvolvido com React, Tailwind CSS e Shadcn para o frontend, com testes automatizados utilizando Jest.",
+    description: "Aplicação web desenvolvida como parte de um projeto de pesquisa financiado pela FINEP, voltado para um doutorando na área de energia sustentável. O sistema realiza o gerenciamento de materiais com suporte a múltiplas categorias e unidades de medida, e monitora eletrolisadores em tempo real, controlando variáveis como produção e consumo de energia, condições ambientais e eficiência operacional. Seu principal objetivo é otimizar a produção de hidrogênio verde (H₂V), elevando a qualidade e reduzindo os custos do processo — contribuindo diretamente com os avanços na transição energética.",
     image: lameffLogo,
     tags: ["React", "Tailwind CSS", "Shadcn", "Jest"]
   },
