@@ -35,50 +35,55 @@ import Orbit from "./Orbit.astro";
 </style>
 
 <div class="bg-gray-900 w-full h-[100vh] overflow-hidden">
-    <Orbit rotation="320" orbitDuration="100s" size="940">
-      <Image src={codePng} alt="CodeIcon" />
-    </Orbit>
-    <Orbit rotation="100" orbitDuration="48s" size="400">
-      <CatIcon class="size-18 text-[#11276e] opacity-40"/>
-    </Orbit>
-    <Orbit rotation="90" orbitDuration="180s" size="1180">
-      <TsIcon class="size-15 text-[#11276e]"/>
-    </Orbit>
-    <Orbit rotation="0" orbitDuration="26s" size="580">
-      <DockerIcon class="size-12"/>
-    </Orbit>
-    <Orbit rotation="150" orbitDuration="30s" size="480">
-      <BooksIcon class="size-12 text-[#11276e]"/>
-    </Orbit>
-    <Orbit rotation="600" orbitDuration="55s" size="680">
-      <PostgresIcon class="size-8 text-[#11276e]"/>
-    </Orbit>
-    <Orbit rotation="-80" orbitDuration="28s" size="680">
-      <LinuxIcon class="size-20 text-[#11276e]"/>
-    </Orbit>
-    <Orbit rotation="110" orbitDuration="40s" size="780">
-      <ServerIcon class="size-16 text-[#11276e]"/>
-    </Orbit>
-    <Orbit rotation="300" orbitDuration="50s" size="430">
-      <ComputerIcon class="size-8 text-[#11276e] opacity-40"/>
-    </Orbit>
-    <Orbit rotation="-80" orbitDuration="48s" size="980">
-      <CoffeeIcon class="size-14 text-[#11276e]"/>
-    </Orbit>
-    <Orbit rotation="94" orbitDuration="140s" size="980">
-      <SongIcon class="size-16 text-[#11276e]"/>
-    </Orbit>
-    <div class="flex justify-around items-center h-full relative z-2">
+    <div class="relative w-full desktop:static">
+      <Orbit rotation="320" orbitDuration="100s" size="940">
+        <Image src={codePng} alt="CodeIcon" />
+      </Orbit>
+      <Orbit rotation="100" orbitDuration="48s" size="400">
+        <CatIcon class="size-18 text-[#11276e] opacity-40"/>
+      </Orbit>
+      <Orbit rotation="90" orbitDuration="180s" size="1180">
+        <TsIcon class="size-15 text-[#11276e]"/>
+      </Orbit>
+      <Orbit rotation="0" orbitDuration="26s" size="580">
+        <DockerIcon class="size-12"/>
+      </Orbit>
+      <Orbit rotation="150" orbitDuration="30s" size="480">
+        <BooksIcon class="size-12 text-[#11276e]"/>
+      </Orbit>
+      <Orbit rotation="600" orbitDuration="55s" size="680">
+        <PostgresIcon class="size-8 text-[#11276e]"/>
+      </Orbit>
+      <Orbit rotation="-80" orbitDuration="28s" size="680">
+        <LinuxIcon class="size-20 text-[#11276e]"/>
+      </Orbit>
+      <Orbit rotation="110" orbitDuration="40s" size="780">
+        <ServerIcon class="size-16 text-[#11276e]"/>
+      </Orbit>
+      <Orbit rotation="300" orbitDuration="50s" size="430">
+        <ComputerIcon class="size-8 text-[#11276e] opacity-40"/>
+      </Orbit>
+      <Orbit rotation="-80" orbitDuration="48s" size="980">
+        <CoffeeIcon class="size-14 text-[#11276e]"/>
+      </Orbit>
+      <Orbit rotation="94" orbitDuration="140s" size="980">
+        <SongIcon class="size-16 text-[#11276e]"/>
+      </Orbit>
+    </div>
+
+    <div class="flex flex-col desktop:flex-row justify-center gap-10 desktop:justify-around items-center h-full relative z-2">
+      <div>
+        <Image 
+        src={fotoPerfil} 
+        alt="Imagem de perfil" 
+        loading="eager" 
+        class="rounded-full w-70 h-70 desktop:w-100 desktop:h-100 object-cover border-4 border-blue-700 shadow-lg shadow-blue-700/50" />
+      </div>
       <div
         class="apresentation flex flex-col w-126"
       >
         <p id="contact">Olá, me chamo <span class="text-blue-700 font-bold">Victor Silva</span></p>
         <p>Desenvolvedor Full-Stack</p>
-      </div>
-      <div>
-        <Image 
-          src={fotoPerfil} 
-          alt="Imagem de perfil" loading="eager" class="rounded-full w-100 h-100 object-cover border-4 border-blue-700 shadow-lg shadow-blue-700/50" />
       </div>
     </div>
   </div>
