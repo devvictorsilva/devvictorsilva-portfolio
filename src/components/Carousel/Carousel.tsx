@@ -34,11 +34,11 @@ export default function Carousel({ items }: CarouselProps) {
   };
 
   return (
-    <Slider {...settings} className="w-400 h-115">
+    <Slider {...settings} className="w-250 h-170 desktop:w-400 desktop:h-115">
       {items.map((item, index) => (
         <div
           key={index}
-          className="p-4 h-115 flex justify-center transition-transform duration-300"
+          className="p-4 h-160 desktop:h-115 flex justify-center transition-transform duration-300"
         >
           <CarouselItem
             title={item.title}
