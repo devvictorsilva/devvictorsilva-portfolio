@@ -35,13 +35,6 @@ export default function Carousel({ items }: CarouselProps) {
           initialSlide: 2
         }
       },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
     ],
     prevArrow: <Icon icon="material-symbols:keyboard-arrow-left" width="96" height="96"  color="#3B82F6" />,
     afterChange: (index: number) => {
