@@ -26,6 +26,23 @@ export default function Carousel({ items }: CarouselProps) {
     slidesToShow: 3,
     slidesToScroll: 1,
     focusOnSelect: true,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ],
     prevArrow: <Icon icon="material-symbols:keyboard-arrow-left" width="96" height="96"  color="#3B82F6" />,
     afterChange: (index: number) => {
       const centerIndex = Math.floor(index + settings.slidesToShow / 4) % items.length;
@@ -34,7 +51,7 @@ export default function Carousel({ items }: CarouselProps) {
   };
 
   return (
-    <Slider {...settings} className="w-250 h-170 desktop:w-400 desktop:h-115">
+    <Slider {...settings} className="w-full h-170 desktop:w-400 desktop:h-115">
       {items.map((item, index) => (
         <div
           key={index}
