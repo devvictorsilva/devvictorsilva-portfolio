@@ -2,7 +2,9 @@
 
 import Card from "../components/Card.tsx";
 import CarouselServices from "../components/CarouselServices.tsx";
+import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.tsx";
+import Presentation from "../components/Presentation.astro";
 import Section from "../components/Section.astro";
 import { projects } from "../data/projects.ts";
 import Layout from "../layouts/Layout.astro";
@@ -13,7 +15,7 @@ import "../styles/global.css";
   <Nav client:load/>
 
   <!-- Profile -->
-  <!-- <Presentation /> -->
+  <Presentation />
 
   <!-- Serviços -->
   <Section 
@@ -40,6 +42,7 @@ import "../styles/global.css";
       {projects.map((projet) => {
         return (
           <Card
+            client:only="react"
             banner={typeof projet.image === "string" ? projet.image : projet.image.src}
             title={projet.name}
             text={projet.description}
@@ -48,4 +51,6 @@ import "../styles/global.css";
       })}
     </div>
   </Section>
+
+  <Footer />
 </Layout>
