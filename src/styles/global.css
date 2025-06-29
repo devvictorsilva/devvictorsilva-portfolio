@@ -41,6 +41,7 @@ html, body {
 .shadow-glow {
   box-shadow: 0 0 10px 2px rgba(106, 17, 203, 0.5), 0 0 15px 4px rgba(37, 117, 252, 0.4);
   animation: glow 1.5s infinite alternate;
+  transition: box-shadow 0.8s ease-in-out; /* Transição mais lenta */
 }
 
 @keyframes glow {
@@ -58,6 +59,7 @@ html, body {
   border-radius: 16px;
   background: linear-gradient(90deg, #6a11cb, #2575fc);
   background-clip: padding-box;
+  transition: all 0.8s ease-in-out; /* Transição mais lenta */
 }
 
 .radiant::after {
@@ -68,6 +70,7 @@ html, body {
   content: '';
   z-index: -1;
   border-radius: 16px;
+  transition: all 0.8s ease-in-out; /* Transição mais lenta */
 }
 
 .grounded-radiants {
@@ -76,14 +79,19 @@ html, body {
   border-radius: 16px;
   background: var(--color-secondary);
   background-clip: padding-box;
+  transition: all 0.8s ease-in-out; /* Transição mais lenta */
 }
 
-.grounded-radiants::after {
+.grounded-radiants::after,
+.radiant::after {
   position: absolute;
-  top: -6px; bottom: -6px;
-  left: -6px; right: -6px;
+  top: -6px;
+  bottom: -6px;
+  left: -6px;
+  right: -6px;
   background: linear-gradient(90deg, #6a11cb, #2575fc);
   content: '';
   z-index: -1;
   border-radius: 16px;
+  transition: all 0.8s ease-in-out; /* Transição mais lenta */
 }

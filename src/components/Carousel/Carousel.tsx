@@ -19,10 +19,10 @@ export default function Carousel({ items }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const settings = {
-    className: "bg-red-500",
+    className: "",
     centerMode: true,
     infinite: true,
-    speed: 600,
+    speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 1,
     focusOnSelect: true,
@@ -38,7 +38,7 @@ export default function Carousel({ items }: CarouselProps) {
       {items.map((item, index) => (
         <div
           key={index}
-          className="p-4 h-160 desktop:h-115 flex justify-center transition-transform duration-300"
+          className="p-4 h-125 desktop:h-115 flex justify-center transition-transform duration-300"
         >
           <CarouselItem
             title={item.title}
