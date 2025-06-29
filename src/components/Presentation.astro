@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import BooksIcon from '../assets/BooksIcon.svg';
 import CatIcon from '../assets/CatIcon.svg';
 import CoffeeIcon from '../assets/CoffeeIcon.svg';
@@ -10,6 +11,8 @@ import ServerIcon from '../assets/ServerIcon.svg';
 import SongIcon from '../assets/SongIcon.svg';
 import TsIcon from '../assets/TsIcon.svg';
 import Orbit from "./Orbit.astro";
+import fotoPerfil from './public/foto-perfil.jpg';
+import codePng from './public/icon/code.png';
 ---
 
 <style>
@@ -31,9 +34,9 @@ import Orbit from "./Orbit.astro";
   }
 </style>
 
-<div class="bg-gray-900 h-[100vh] overflow-hidden">
+<div class="bg-gray-900 w-full h-[100vh] overflow-hidden">
     <Orbit rotation="320" orbitDuration="100s" size="940">
-      <img src="/src/assets/code.png" alt="CodeIcon" />
+      <Image src={codePng} alt="CodeIcon" />
     </Orbit>
     <Orbit rotation="100" orbitDuration="48s" size="400">
       <CatIcon class="size-18 text-[#11276e] opacity-40"/>
@@ -68,17 +71,14 @@ import Orbit from "./Orbit.astro";
     <div class="flex justify-around items-center h-full relative z-2">
       <div
         class="apresentation flex flex-col w-126"
-        data-aos="fade-in"
-        data-aos-duration="3000"
       >
-        <p id="contact">Hi, my name is <span class="text-blue-700">Victor Silva</span></p>
-        <p>I'm Full-Stack Developer</p>
-        <p class="text-justify text-sm">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta natus
-          cupiditate praesentium fugit sequi dignissimos, expedita a vero ipsa
-          vitae voluptatum voluptate illum illo sit iste porro nihil
-          necessitatibus. A?
-        </p>
+        <p id="contact">Olá, me chamo <span class="text-blue-700 font-bold">Victor Silva</span></p>
+        <p>Desenvolvedor Full-Stack</p>
+      </div>
+      <div>
+        <Image 
+          src={fotoPerfil} 
+          alt="Imagem de perfil" loading="eager" class="rounded-full w-100 h-100 object-cover border-4 border-blue-700 shadow-lg shadow-blue-700/50" />
       </div>
     </div>
   </div>
